@@ -1,0 +1,23 @@
+{
+  "name": "quiztastic",
+  "version": "1.0.0",
+  "description": "a simple self quizing app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tthoraldson/quiztastic.git"
+  },
+  "author": "theresa.thoraldson@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "jquery": "^3.1.1"
+  }
+}
