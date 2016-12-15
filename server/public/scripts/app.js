@@ -7,21 +7,23 @@ $('document').ready(function(){
 
     // WHEN CLICKING CORRECT ANSWER
     if($(this).hasClass('correct')){
-      clickedCorrect();
+      clickedCorrect(this);
     }
     // WHEN CLICKING INCORRECT ANSWER
     else{
-      clickedIncorrect();
+      clickedIncorrect(this);
     }
   })
 });
 
 // FUNCTION ZONE WOOOOOOOOOOOOOOOOOO
-function clickedCorrect(){
-  console.log('removing lame class');
-  $(this).removeClass('alert-info');
+function clickedCorrect(thing){
+  $(thing).removeClass('alert-info').addClass('alert-success');
 }
 
-function clickedIncorrect(){
-  console.log('incorrect answer')
+function clickedIncorrect(thing){
+  $(thing).removeClass('alert-info').addClass('alert-danger');
+  $(thing).parent().find('.correct').removeClass('alert-info').addClass('alert-success');
 }
+
+// COOL ARRAY ZONEEEEEEEE
