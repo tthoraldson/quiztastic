@@ -1,5 +1,5 @@
 $('document').ready(function(){
-  console.log('DOCUMENT IS READY');
+  console.log(questions);
 
   // WHEN CLICKING ON ANSWERS
   $('.alert').on('click', function(){
@@ -26,4 +26,22 @@ function clickedIncorrect(thing){
   $(thing).parent().find('.correct').removeClass('alert-info').addClass('alert-success');
 }
 
-// COOL ARRAY ZONEEEEEEEE
+// SAMPLE QUESTIONS!
+var questions = [
+  {
+    question: 'What is the capitol of Minnesota?',
+    correct: 'St. Paul',
+    incorrect: [
+      'Minneapolis',
+      'Duluth',
+      'Mankato'
+    ]
+  },
+  {
+    question: 'Does AU stand for gold?',
+    correct: 'True',
+    incorrect: [
+      'False'
+    ]
+  }
+]
