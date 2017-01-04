@@ -3,10 +3,10 @@ var app = express();
 var path = require('path');
 
 // Serve back static files
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './public/')));
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, './public/views/index.html'));
+  res.sendFile(path.join(__dirname, './public/views/'));
 });
 
 app.set('port', process.env.PORT || 5000);
