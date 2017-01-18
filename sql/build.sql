@@ -1,0 +1,1 @@
+-- run this before initally starting up your server!
