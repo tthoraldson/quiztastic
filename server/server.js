@@ -5,10 +5,17 @@ var path = require('path');
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public/')));
 
-app.get('/test1', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test1.html')); });
-app.get('/test2', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test2.html')); });
-app.get('/test3', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test3.html')); });
+// Cute lil test routes!
+app.get('/test1', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test1.html')); });
+app.get('/test2', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test2.html')); });
+app.get('/test3', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test3.html')); });
 
+// Actual Routes
+app.get('/quizzes', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/quizzes.html')); });
+app.get('/create', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/create.html')); });
+
+
+// Catch All -> Sends to index.html;
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, './public/views/'));
 });
