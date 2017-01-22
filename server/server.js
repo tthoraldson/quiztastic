@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var path = require('path');
+var createQuiz = require('./routes/createQuiz')
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public/')));
