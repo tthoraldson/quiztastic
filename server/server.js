@@ -1,7 +1,8 @@
 var express = require("express");
 var app = express();
 var path = require('path');
-var createQuiz = require('./routes/createQuiz')
+var createQuiz = require('./routes/create_quiz');
+var getQuiz = require('./routes/get_quiz');
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public/')));
@@ -11,10 +12,14 @@ app.get('/test1', function(re1, res){ res.sendFile(path.join(__dirname, './publi
 app.get('/test2', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test2.html')); });
 app.get('/test3', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test3.html')); });
 
-// Actual Routes
+// Website View Routes
 app.get('/quizzes', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/quizzes.html')); });
 app.get('/create', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/create.html')); });
 
+// Normal Routes woo
+app.use('/', function(req, res){
+  res.send(cats);
+});
 
 // Catch All -> Sends to index.html;
 app.get('/', function(req, res) {
