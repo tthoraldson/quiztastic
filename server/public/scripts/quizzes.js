@@ -1,17 +1,16 @@
 $('document').ready(function(){
   console.log('document is ready');
+  getQuizzes();
 });
 
 // function fun zone
-function getQuizzes() {
+function getQuizzes(){
+  console.log('getQuizzes() started');
   $.ajax({
     type: 'GET',
-    url: '/cats',
-    success: function(response) {
-      $("#cat-list").empty();
-      response.forEach(function(cat) {
-        appendDom(cat);
-      });
+    url: '/getQuiz',
+    success: function(response){
+      console.log(response);
     }
   });
 }

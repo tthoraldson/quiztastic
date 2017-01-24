@@ -17,9 +17,7 @@ app.get('/quizzes', function(re1, res){ res.sendFile(path.join(__dirname, './pub
 app.get('/create', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/create.html')); });
 
 // Normal Routes woo
-app.use('/', function(req, res){
-  res.send(cats);
-});
+app.use('/getQuiz', getQuiz);
 
 // Catch All -> Sends to index.html;
 app.get('/', function(req, res) {
