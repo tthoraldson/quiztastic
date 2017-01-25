@@ -1,13 +1,23 @@
 var express = require("express");
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser')
+
+// custom requires
 var createQuiz = require('./routes/create_quiz');
 var getQuiz = require('./routes/get_quiz');
+var requestQuiz = require('./routes/quiz_request');
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public/')));
 
-// Cute lil test routes!
+// VENDOR
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+// Test
 app.get('/test1', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test1.html')); });
 app.get('/test2', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test2.html')); });
 app.get('/test3', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/test/test3.html')); });
@@ -16,8 +26,9 @@ app.get('/test3', function(re1, res){ res.sendFile(path.join(__dirname, './publi
 app.get('/quizzes', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/quizzes.html')); });
 app.get('/create', function(re1, res){ res.sendFile(path.join(__dirname, './public/views/create.html')); });
 
-// Normal Routes woo
+// Normal Routes
 app.use('/getQuiz', getQuiz);
+app.use('/requestQuiz', requestQuiz);
 
 // Catch All -> Sends to index.html;
 app.get('/', function(req, res) {
