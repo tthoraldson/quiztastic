@@ -36,7 +36,7 @@ function getQuizzes(){
 
 function getClickedQuiz(req){
   $.ajax({
-    type: 'POST',
+    type: 'GET',
     url: '/requestQuiz',
     data: {
       id: req
